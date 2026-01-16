@@ -92,16 +92,16 @@
   line-height: 14px;
   opacity: 0.5;
   text-shadow:
-    -1px 0 var(--text-stroke-color),
-    0 1px var(--text-stroke-color),
-    1px 0 var(--text-stroke-color),
-    0 -1px var(--text-stroke-color);
+    -1px 0 var(--text-color),
+    0 1px var(--text-color),
+    1px 0 var(--text-color),
+    0 -1px var(--text-color);
 }
 
-@supports (-webkit-text-stroke: 1px var(--text-stroke-color)) {
+@supports (-webkit-text-stroke: 1px var(--text-color)) {
   .card__label {
     text-shadow: none;
-    -webkit-text-stroke: 1px var(--text-stroke-color);
+    -webkit-text-stroke: 1px var(--text-color);
   }
 }
 

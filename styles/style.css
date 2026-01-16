@@ -43,7 +43,7 @@ font-size: var(--font-size-title);
 text-align: center;
 }
 
-.header__container{
+.header__container {
   margin: auto;
 }
 
@@ -153,7 +153,7 @@ text-align: center;
 
 .button-save {
   display: block;
-  inline-size: clamp(19.125rem, 18.4868rem + 2.723vw, 20.9375rem); ;
+  inline-size: clamp(19.125rem, 18.4868rem + 2.723vw, 20.9375rem); 
   margin-block: 50px 100px;
   margin-inline: auto;
   padding: 15px 17px;
@@ -234,11 +234,14 @@ text-align: center;
   filter: blur(0.2rem) sepia(80%);
 }
 
+.filter-blur {
+  filter: blur(0.2rem) ;
+}
 .filter-grayscale {
   filter:  grayscale(1);
 }
 
-.filter-opacity{
+.filter-opacity {
   filter: opacity(0.6)  ;
 }
 
@@ -297,7 +300,6 @@ text-align: center;
 }
 
 /* Иконка сердца  */
-
 .sparks {
   opacity: 0;
 }

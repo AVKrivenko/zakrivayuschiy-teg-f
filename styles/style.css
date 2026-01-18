@@ -28,13 +28,13 @@
 }
 
 .header {
-  margin-block-start: clamp(40px, 8vw, 100px);
+  margin-block-start:100px;
   border: 2px solid #000;
   background-color: #fff;
   font-family: var(--font-accent), sans-serif;
   text-align: center;
   padding: clamp(7.5rem, 7.3239rem + 0.7512vw, 8rem) 0;
-  margin-bottom: 105px;
+  margin-bottom:  6.3125rem;
 }
 
 .header-title {
@@ -47,8 +47,8 @@
 }
 
 .header-text {
-  padding-top: clamp(10px, 3vw, 20px);
-  font-size: clamp(16px, 3vw, 23px);
+  padding-top: 1.25rem;
+  font-size:clamp(0.875rem, 0.6769rem + 0.8451vw, 1.4375rem);
   text-transform: uppercase;
   max-inline-size: 100%;
 }
@@ -56,7 +56,12 @@
 .card {
   border: 2px solid #000;
   background-color: #fff;
-  margin-bottom: 48px;
+  margin-bottom: 0;
+}
+
+/* ИЛИ лучше - добавляем отступ только между карточками */
+.card:not(:last-child) {
+  margin-bottom: 52px;
 }
 
 .card__title {
@@ -67,19 +72,23 @@
 
 .card__image-wrapper {
   position: relative;
-  inline-size: 100%;
+  width: 100%;
+  height: auto;
   overflow: hidden;
   margin: 0;
-  block-size: clamp(20rem, 13.2143rem + 33.9286vw, 43.75rem);
+  block-size:clamp(23.5rem, 16.0352rem + 30.5164vw, 43.5rem);
   border-top: 2px solid #000;
   border-bottom: 2px solid #000;
 }
 
 .card__image {
   width: 100%;
-  height: 100%;
   object-fit: cover;
+  height: 100%;
   transition: transform 0.3s ease;
+  object-position: center;
+  display: block;
+   aspect-ratio: 4 / 3; 
 }
 
 .card__label {
@@ -111,6 +120,8 @@
   gap: 25px;
   font-size: 18px;
   line-height: 21px;
+  
+
 }
 
 .card__buttons {
@@ -128,7 +139,14 @@
   block-size: 38px;
   padding: 0;
   transition: border-color 0.3s ease;
+  outline: none ;
 }
+
+
+.card__icon-button:focus-visible {
+  border: 2px solid #000;
+}
+  
 
 .card__like-button {
   min-block-size: 38px;
@@ -152,14 +170,14 @@
 .button-save {
   display: block;
   inline-size: clamp(19.125rem, 18.4868rem + 2.723vw, 20.9375rem);
-  margin-block: 50px 100px;
+  margin-block: 0 100px;
   margin-inline: auto;
   padding: 15px 17px;
 }
 
 .button-save__content {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   align-items: center;
   gap: 8px;
 }
@@ -180,6 +198,7 @@
   gap: 30px;
   padding: 30px;
   border: 2px #000 solid;
+  
 }
 
 .dialog__save[open] {
@@ -212,7 +231,12 @@
   text-transform: uppercase;
 }
 
-@media (max-width: 375px) {
+@media (max-width: 376px) {
+  .card__text {
+    max-width: 95%;
+    width: fit-content;
+  }
+ 
   .button-save__content {
     display: flex;
     flex-direction: column;
@@ -254,22 +278,6 @@
 
 
 /* кнопки */
-
-.card__like-button:focus,
-.footer__button:focus-visible,
-.dialog__button:focus-visible {
-  outline: none;
-  box-shadow: 2px 2px #000;
-  transition: box-shadow 0.3s ease;
-}
-
-.card__like-button:focus-visible,
-.footer__button:focus-visible,
-.dialog__button:focus-visible {
-  box-shadow: 2px 2px #000;
-  transition: box-shadow 0.3s ease;
-}
-
 .button {
   border: 2px #000 solid;
   font-family: var(--font-accent), sans-serif;
@@ -279,6 +287,18 @@
   cursor: pointer;
   overflow: hidden;
   z-index: 1;
+}
+
+.button:focus {
+  outline: none;
+  box-shadow: 2px 2px #000;
+  transition: box-shadow 0.3s ease;
+}
+
+.button:focus-visible {
+  outline: none;
+  box-shadow: 2px 2px #000;
+  transition: box-shadow 0.3s ease;
 }
 
 .button::before {
@@ -317,6 +337,8 @@
   fill: transparent;
   transition: fill 0.3s linear;
 }
+
+
 
 .like-icon:hover .core {
   fill: #000;
@@ -359,5 +381,6 @@
 }
 
 .like-icon.is-liked .sparks {
+  fill: var(--animation-fill-color);
   animation: sparks 0.3s ease-in 0.3s;
 }
